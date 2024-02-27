@@ -1,6 +1,6 @@
 MULTITAB
 =
-The **MULTITAB** project is some code I wrote to: display the multiplication tables (up to 999 from 2) numbers, and perfect squares.
+The **MULTITAB** project is some code I wrote to: display the multiplication tables (up to 999 from 2) of numbers, and perfect squares.
 
 TIRAD
 =
