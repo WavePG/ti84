@@ -2,7 +2,7 @@ MULTITAB 3.0.4
 =
 The **MULTITAB** project is some code I wrote to: display the multiplication tables (up to 999 from 2) of numbers, and perfect squares.
 
-TIRAD 1.6
+TIRAD 1.7
 =
 **TIRAD** on the other hand: turns a number into its radical form, for example: *√80* will be printed in radical form as *4√5*.
 
