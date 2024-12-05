@@ -1,0 +1,64 @@
+Lbl 1
+ClrHome
+Output(7,1,"TDL: 1.0 KEY: G6.08"
+Output(8,1,"VER. 1.7"
+Output(9,1,"(C)2024 TSUNAMI CO."
+Output(2,1,"TI-RAD 84"
+
+Input "NUM: ",D
+
+
+2→A
+2→B
+0→P
+0→G
+
+Lbl 2
+Repeat X=D:
+
+Output(2,1,"TRYING:                  "
+A√(B)→X
+Output(2,9,A
+length(toString(A→L
+Output(2,10+L,"√("
+Output(2,11+L,B
+If X≠D:Then
+B+1→B
+End
+If X>D:Then
+2→B
+A+1→A
+End
+
+
+If A>100 or A√(2)>D:Then
+Output(2,1,"                         "
+Output(10,1,"'+' TO DO MORE NUMS"
+
+If P=1:Then
+Output(2,1,"SUCCESS WITH:"
+Output(3,1,"ANS:"
+Output(3,6,Y
+length(toString(Y→L
+Output(3,6+L,"√("
+Output(3,7+L,Z
+Else:Output(2,1,"FAIL: OUT OF SCOPE"
+End
+
+Repeat K
+getKey→K
+End
+If K=95:Then
+ClrHome
+Goto 1
+Else:Stop
+End
+
+End
+End
+
+A→Y
+B→Z
+A+1→A
+1→P
+Goto 2
