@@ -1,0 +1,252 @@
+"WHOLE"→Str1
+0→M
+ClrHome
+Output(1,1,"MUL(TI)PLICATION TABLE 84"
+Output(7,1,"TDL: 1.0, KEY: G5.5"
+Output(8,1,"VER. 3.0.4"
+Output(9,1,"(C)2023 TSUNAMI CO."
+Output(10,1,"'ENTER'=NEXT, 'DEL'=EXIT"
+2→X
+
+Lbl 1
+Repeat G
+getKey→G
+
+
+If G=23 or G=45:Then
+Goto 6
+End
+If G=105:Then
+Goto 2
+End
+
+Goto 1
+
+Lbl 2
+If M=0:Then
+"WHOLE"→Str1
+End
+If M=1:Then
+"ALL"→Str1
+End
+If M=2:Then
+"PERFECT SQ"→Str1
+End
+ClrHome
+Output(1,1,"NUMBER: "
+If Str1="PERFECT SQ":Then
+Output(1,9,"PERFECT SQ"
+Else:Output(1,9,X
+End
+Output(2,1,"MODE="
+Output(2,6,Str1
+Output(7,1,"''=#, 'ENTER'=SELECT"
+Output(8,1,"'^V'=MODE
+Output(9,1,"'DEL'=EXIT, 'STO>'=SEARCH"
+If Str1≠"PERFECT SQ":Then
+Output(10,26,""
+If X≠2:Then
+Output(10,1,""
+Else:Output(10,1," "
+End
+End
+Goto 3
+
+Lbl 3
+Repeat G
+getKey→G
+End
+
+If G=23 or G=45
+Then:Goto 6
+End
+
+If G=24 and X>2 and Str1≠"PERFECT SQ"
+Then:X-1→X
+End
+
+If G=26 and X<999 and Str1≠"PERFECT SQ"
+Then:X+1→X
+End
+
+If G=25 and M>0:Then
+M-1→M
+Goto 2
+End
+If G=34 and M<2:Then
+M+1→M
+Goto 2
+End
+
+If Str1="PERFECT SQ":Then
+Output(1,9,"PERFECT SQ"
+Else:Output(1,9,X
+End
+If X≠2 and Str1≠"PERFECT SQ"
+Then:Output(10,1,""
+Else:Output(10,1," "
+End
+
+If G=91 and Str1≠"PERFECT SQ"
+Then:ClrHome
+Input "NUMBER: ",X
+If X>999
+Then:999→X
+End
+If X<2
+Then:2→X
+End
+Goto 2
+End
+
+If G=105
+Then:ClrHome
+1→Y
+1→Q
+2→N
+Goto 4
+End
+
+Output(1,1,"NUMBER:      "
+If Str1="PERFECT SQ":Then
+Output(1,9,"PERFECT SQ"
+Else:Output(1,9,X
+End
+If X≠2
+Then:Output(10,1,""
+Else:Output(10,1," "
+End
+
+Goto 3
+
+Lbl 4
+ClrHome
+Output(10,1,"''=PAGE#, 'DEL'=EXIT"
+1→A
+If Str1="ALL":Then
+Goto 7
+End
+If Str1="WHOLE":Then
+Goto 8
+End
+If Str1="PERFECT SQ":Then
+
+Goto 9
+End
+
+Lbl 7
+Output(10,24,"M:A"
+If Y<0:Then
+1→Y
+End
+If X≥Y+1
+Then:For(Y,Y,Y+7,1)
+Output(A,1,X
+Output(A,4,"/"
+Output(A,5,Y
+Output(A,8,"="
+X/Y→Z
+Output(A,9,Z
+A+1→A
+End
+End
+Goto 5
+
+
+Lbl 8
+Output(10,24,"M:W"
+
+For(Y,Y,Y+7,1)
+X/Y→Z
+round(Z,0)→W
+If Z-W=0:Then
+Output(A,1,X
+Output(A,4,"/"
+Output(A,5,Y
+Output(A,8,"="
+Output(A,9,Z
+If Z≠1:Then
+√(Z)→V
+√(Y)→U
+If V=round(V,0) or V+1=round(V,0) or U=round(U,0) or U+1=round(U,0):Then
+Output(A,26,"²"
+End
+End
+A+1→A
+End
+End
+Goto 5
+
+Lbl 9
+
+Output(10,24,"M:P"
+For(N,N,N+7,1)
+If N<100:Then
+Output(A,1,"√("
+Output(A,3,N
+Output(A,5,"="
+Output(A,6,NN
+A+1→A
+End
+End
+Goto 5
+
+
+Lbl 5
+If Str1≠"PERFECT SQ":Then
+round(X/8,0)→P
+Else:13→P
+End
+If P=0:Then
+1→P
+End
+If Q>P+1:Then
+Goto 2
+End
+Output(9,1,"PAGE:   /"
+Output(9,6,Q
+Output(9,10,P
+If Str1="WHOLE":Then
+Output(9,13,"'²'=PERFECT SQ"
+End
+
+Repeat G
+getKey→G
+End
+
+If G=23 or G=45
+Then:Goto 2
+End
+
+If G=24 and Q>1
+Then:Q-1→Q
+Y-16→Y
+N-16→N
+Goto 4
+End
+
+If G=26
+Then:Q+1→Q
+Goto 4
+End
+
+
+If G=91 and Str1≠"PERFECT SQ":Then
+ClrHome
+Input "NUMBER: ",X
+If X>999:Then
+999→X
+End
+If X<2:Then
+2→X
+End
+1→Y
+1→Q
+Goto 4
+End
+
+Goto 5
+
+Lbl 6
+ClrHome
+Stop
