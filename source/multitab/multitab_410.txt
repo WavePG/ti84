@@ -1,0 +1,255 @@
+"WHOLE"→Str1
+0→M
+2→X
+ClrHome
+Output(1,1,"MUL(TI)TAB V4.1.0"
+Output(2,1,"TDL: 1.5, KEY: G6.12"
+Output(3,1,"(C)2025 TSUNAMI CO."
+Output(9,1,"'STO'=QUICK SEARCH"
+Output(10,1,"'ENTER'=NEXT, 'DEL'=EXIT"
+
+
+Lbl 1
+Repeat G:getKey→G
+End
+
+If G=23 or G=45:Then:Goto 6
+End
+
+If G=105:Then:
+ClrHome
+Goto 2
+End
+
+If G=91:Then:Goto 10
+End
+Goto 1
+
+
+Lbl 2
+1→Q
+If M=0:Then:"WHOLE"→Str1
+End
+If M=1:Then:"PERFECT SQ"→Str1
+End
+Output(1,1,"NUMBER: "
+
+If Str1="PERFECT SQ":Then
+Output(1,9,"PERFECT SQ"
+Output(7,1,"''=WHOLE MODE
+Output(8,1,"'DEL'=EXIT
+Else:Output(1,9,X
+Output(10,3,"''=#, 'ENTER'=SELECT"
+Output(7,1,"''=PERFECT SQ
+Output(8,1,"'DEL'=EXIT, 'STO'=SEARCH"
+If X≠9999:Then:Output(10,26,"":Else:Output(10,26," "
+End
+If X≠2:Then:Output(10,1,"":Else:Output(10,1," "
+End
+End
+
+Output(2,1,"MODE="+Str1
+Goto 3
+
+
+Lbl 3
+Repeat G:getKey→G
+End
+
+If G=23 or G=45:Then:Goto 6
+End
+
+If G=24 and X>2 and Str1≠"PERFECT SQ":Then
+X-1→X
+Output(1,10,"   "
+End
+
+If G=26 and X<9999 and Str1≠"PERFECT SQ":Then
+X+1→X
+Output(1,10,"   "
+End
+
+If G=25 and M>0:Then
+M-1→M
+ClrHome
+Goto 2
+End
+
+If G=34 and M<1:Then
+M+1→M
+ClrHome
+Goto 2
+End
+
+If Str1="PERFECT SQ":Then:Output(1,9,"PERFECT SQ":Else:Output(1,9,X
+End
+If X≠9999 and Str1≠"PERFECT SQ":Then:Output(10,26,"":Else:Output(10,26," "
+End
+If X≠2 and Str1≠"PERFECT SQ":Then:Output(10,1,"":Else:Output(10,1," "
+End
+If G=91 and Str1≠"PERFECT SQ":Then:Goto 10
+End
+
+If G=105:Then
+ClrHome
+If Str1="PERFECT SQ":Then
+1→Q
+2→N
+Goto 4
+Else:Output(10,17,"'DEL'=EXIT"
+1→Y
+1→A
+1→I
+1→P
+Goto 8
+End
+End
+
+Goto 2
+Output(1,1,"NUMBER:      "
+
+If Str1="PERFECT SQ":Then
+Output(1,9,"PERFECT SQ"
+Else:Output(1,9,X
+If X≠2:Then:Output(10,1,"":Else:Output(10,1," "
+End
+End
+
+Goto 3
+
+
+Lbl 4
+ClrHome
+Output(10,1,"PAGE:"
+Output(10,17,"'DEL'=EXIT"
+1→A
+Goto 9
+
+
+Lbl 8
+While I≠10 and Y≤X and Y>0
+If Y>X/2 and Q=1:Then:X→Y
+End
+X/Y→Z
+
+If fPart(Z)=0:Then
+Output(A,1,toString(X)+"/"+toString(Y)+"="+toString(Z
+If I=9 or X=Y:Then:Output(10,1,"END OF PAGE   ":Else:Output(10,1,"CALCULATING...
+End
+
+If Q=1:Then
+If I=1:Then:Y→F
+End
+If I=9 or Y=X:Then:Y→H
+End
+Else:
+If I=9:Then:Y→F
+End
+If I=1:Then:Y→H
+End
+End
+
+I+1→I
+A+Q1→A
+End
+
+If fPart(X/2)=0:Then:Y+Q1→Y:Else:Y+Q2→Y
+End
+End
+
+If I=3:Then:Output(3,1,"PRIME NUMBER"
+End
+Goto 5
+
+
+Lbl 9
+For(N,N,N+8,1)
+If N<101:Then
+Output(A,1,toString(N)+"²="+toString(NN
+A+1→A
+End
+End
+Goto 5
+
+
+Lbl 10
+ClrHome
+Output(10,1,"INPUT A NUMBER TO SEARCH"
+Input "#: ",X
+
+If X>9999:Then
+9999→X
+ClrHome
+Goto 2
+End
+
+If X<2:Then
+2→X
+ClrHome
+Goto 2
+End
+
+1→Y
+1→A
+1→I
+1→Q
+ClrHome
+Output(10,17,"'DEL'=EXIT"
+Goto 8
+
+Lbl 5
+If Str1="PERFECT SQ":Then:11→P
+If P=0:Then:1→P
+End
+If Q>P:Then:Goto 2
+End
+Output(10,7,(toString(Q)+"/"+toString(P)+""
+End
+
+Repeat G:getKey→G
+End
+
+If G=23 or G=45:Then
+ClrHome
+Goto 2
+End
+
+If G=24 and Q>1 and Str1="PERFECT SQ":Then
+Q-1→Q
+N-18→N
+Goto 4
+End
+
+If G=24 and F>1 and Str1="WHOLE":Then
+9→A
+1→I
+F-1→Y
+­1→Q
+ClrHome
+Output(10,17,"'DEL'=EXIT"
+Goto 8
+End
+
+If G=26 and Str1="PERFECT SQ":Then
+Q+1→Q
+Goto 4
+End
+
+If G=26 and Str1="WHOLE" and I=10 and Y≤X:Then
+H+1→Y
+1→A
+1→I
+1→Q
+ClrHome
+Output(10,17,"'DEL'=EXIT"
+Goto 8
+End
+
+If G=91 and Str1≠"PERFECT SQ":Then:Goto 10
+End
+Goto 5
+
+
+Lbl 6
+ClrHome
+Stop
