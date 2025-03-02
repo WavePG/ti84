@@ -1,6 +1,6 @@
-MULTITAB 4.0.0
+MULTITAB 4.1.0
 =
-The **MULTITAB** project is some code I wrote to: display the multiplication tables (from 2-9999) of numbers, and also perfect squares.
+The **MULTITAB** project is some code I wrote to: display the multiplication tables of numbers (between 2 and 9999), and also list perfect squares (up to 100).
 
 TIRAD 1.7
 =
@@ -8,5 +8,5 @@ TIRAD 1.7
 
 MATRIXIT 1.1.7
 =
-The program **MATRIXIT** easily solves, and shows all the steps to get an augmented matrix in reduced row echelon form (rref). To input, put a 3x4 Matrix in using 2nd+Matrix > Edit > [A].
+The program **MATRIXIT** easily solves and shows all the steps to get an augmented matrix in reduced row echelon form (rref). To input, put a 3x4 Matrix in using 2nd+Matrix > Edit > [A].
 Original Matrix *has* to be [A]
