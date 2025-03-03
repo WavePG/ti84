@@ -1,4 +1,4 @@
-MULTITAB 4.1.0
+MULTITAB 4.2.0
 =
 The **MULTITAB** project is some code I wrote to: display the multiplication tables of numbers (between 2 and 9999), and also list perfect squares (up to 100).
 
